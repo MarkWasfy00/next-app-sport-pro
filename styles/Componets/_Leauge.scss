@@ -1,0 +1,15 @@
+@use '../reusable/AllReusable' as *;
+@use '../Mixins/AllMixins' as *;
+
+
+.leauge-display{
+    margin-top: 5rem;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    max-width: 70rem;
+
+    @include media(tablet){
+        border: 1px $card solid;
+    }
+}

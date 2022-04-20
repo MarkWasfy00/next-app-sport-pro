@@ -1,0 +1,16 @@
+@use '../reusable/AllReusable' as *;
+@use '../Mixins/AllMixins' as *;
+
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: $card;
+    min-height: 5rem;
+    text-align: center;
+    padding: 1rem;
+    a{
+        color: white;
+    }
+}

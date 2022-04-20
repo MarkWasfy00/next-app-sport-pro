@@ -1,0 +1,75 @@
+@use '../reusable/AllReusable' as *;
+@use '../Mixins/AllMixins' as *;
+
+.card{
+    
+    margin-top: 1rem; // testing
+    margin-inline: auto;
+    background-color: $card;
+    border-radius: 1rem;
+    min-height: 10rem;
+    padding: 1rem;
+    .match-events{
+        @include flex(false,center,space-between);
+        .teams{
+            background-color: $header;
+            height: 9rem;
+            width: 9rem;
+            border-radius: 10%;
+            padding: 1rem;
+            text-align: center;
+            @include flex(column,center,center);
+            gap: .5rem;
+
+            .team-img{
+                max-width: 5rem;
+            }
+            
+        }
+
+        .match-results{
+            text-align: center;
+            @include flex(column,center);
+            gap: 1rem;
+            .status{
+                background-color: $bg;
+                padding: .5rem;
+                border-radius: 1rem;
+            }
+        }
+    }
+
+    .match-info{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: 1fr;
+        margin-top: 1rem;
+        border-top: 1px $bg solid;
+        padding-block: 1rem;
+        text-align: center;
+        gap: 1rem;
+        @include media(tablet){
+            grid-template-columns: repeat(3,1fr);
+        }
+        
+        .info{
+            @include flex(row-reverse,center,center);
+            gap: .5rem;
+        }
+    }
+
+    .bein{
+        width: 100%;
+        background-color: $header;
+        min-height: 3rem;
+        border: none;
+        color: $color;
+        cursor: pointer;
+        transition: 500ms;
+        &:hover{
+            background-color: $bg;
+        }
+    }
+}
+
+

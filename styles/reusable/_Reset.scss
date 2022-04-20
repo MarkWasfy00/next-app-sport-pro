@@ -1,0 +1,64 @@
+@use './Variables';
+
+
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: Variables.$bg;
+    color: Variables.$color;
+    min-height: 100vh;
+    //border: 2px Variables.$card solid;
+    padding-bottom: 10rem;
+}
+
+
+
+a{
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+
+.disabled{
+    opacity: .5;
+    pointer-events: none;
+}
+
+.disactive{
+    display: none !important;
+}
+
+// header{
+//     background-color: Variables.$card;
+//     background-size: cover;
+//     min-height: 10rem;
+// }
+
+// ::-webkit-scrollbar{
+//     background-color: $dark;
+//     &-thumb{
+//         background-color: $blue;
+//         border-radius: .5rem;
+//     }
+// }

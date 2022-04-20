@@ -1,0 +1,39 @@
+@use '../reusable/AllReusable' as *;
+@use '../Mixins/AllMixins' as *;
+
+.navbar{
+    background-color: $header;
+    @include flex(false,center,space-between);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    .logo{
+        @include flex(false);
+        gap: 1rem;
+        border: 3px $color solid;
+        height: 4rem;
+        width: 5rem;
+        padding: 0 .5rem;
+        position: relative;
+        &::before{
+            content: 'الڤار';
+            position: absolute;
+            background-color: $header;
+            top: -3px;
+            bottom: -3px;
+            left: 50%;
+            width: 50%;
+            transform: translateX(-50%);
+            @include flex(false,center,center);
+        }
+    }  
+
+    .lists{
+        @include flex(row-reverse,center);
+        gap: 2rem;
+        li{
+            a{
+                color: $color;
+            }
+        }
+    }
+}

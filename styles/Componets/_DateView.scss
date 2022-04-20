@@ -1,0 +1,22 @@
+@use '../reusable/AllReusable' as *;
+@use '../Mixins/AllMixins' as *;
+
+
+
+.date-arrow{
+    @include flex(false,center,center);
+    gap: 2rem;
+    margin-top: 4rem;
+
+    .day{
+        @include flex(false,center,center);
+        height: 3rem;
+        width: 10rem;
+        border: 1px $color solid;
+        cursor: pointer;
+    }
+    .active{
+        background-color: $color;
+        color: $header;
+    }
+}

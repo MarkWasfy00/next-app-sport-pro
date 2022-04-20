@@ -1,0 +1,32 @@
+@use '../reusable/AllReusable' as *;
+@use '../Mixins/AllMixins' as *;
+@use '../Animations/Animations' as *;
+
+.loading{
+    position: fixed;
+    inset: 0 0 0 0;
+    background-color: $bg;
+    z-index: 999;
+
+    .load-circle{
+        width: 5rem;
+        height: 5rem;
+        border: 3px solid $card;
+        border-radius: 50%;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+
+        &-bar{
+            position: absolute;
+            background-color: $bg;
+            width: 1rem;
+            height: 5rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            animation: rotate 1s ease-in-out infinite;
+        }
+    }
+}
