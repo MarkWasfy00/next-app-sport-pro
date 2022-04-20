@@ -59,7 +59,7 @@ export default function ElVar({ matchesData }){
                 ]
             })
         });
-    },[0])
+    },[])
 
 
     return(
@@ -67,7 +67,7 @@ export default function ElVar({ matchesData }){
             <Header/>
             <main>
                 <Date indicator={dayBtn} modify={dispatch} />
-                    <BtnContext.Provider value={{ btn:dayBtn}}>
+                    <BtnContext.Provider value={{ btn:dayBtn , data:matchesData}}>
                         {myDays}
                     </BtnContext.Provider>
             </main>
