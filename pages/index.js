@@ -59,7 +59,7 @@ export default function ElVar({ matchesData }){
                 ]
             })
         });
-    },[])
+    },[0])
 
 
     return(
