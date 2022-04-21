@@ -1,7 +1,7 @@
 import React from 'react'
 import { addHours, intervalToDuration , isValid , isFuture, isPast ,isAfter} from 'date-fns';
 import axios from 'axios';
-
+import Image from 'next/image';
 
 
 
@@ -116,7 +116,8 @@ function Card(props) {
         <div className='match-events'>
             <div className='left-team teams'>
                 <div className='team-img'>
-                    <img src={teamBPhoto} alt={teamB}/>
+                    {/* <img src={teamBPhoto} alt={teamB}/> */}
+                    <Image  src={teamBPhoto} alt={teamB} width={80} height={80} />
                 </div>
                 <h1 className='team-name testing'>{teamB}</h1>
             </div>
@@ -126,7 +127,8 @@ function Card(props) {
             </div>
             <div className='right-team teams'>
                 <div className='team-img'>
-                    <img src={teamAPhoto} alt={teamA} />
+                    {/* <img src={teamAPhoto} alt={teamA} /> */}
+                    <Image  src={teamAPhoto} alt={teamA} width={80} height={80} />
                 </div>
                 <h1 className='team-name testing'>{teamA}</h1>
             </div>
