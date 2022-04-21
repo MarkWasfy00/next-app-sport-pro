@@ -25,6 +25,9 @@
             transform: translateX(-50%);
             @include flex(false,center,center);
         }
+        &:hover{
+            cursor: pointer;
+        }
     }  
 
     .lists{

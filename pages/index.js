@@ -65,11 +65,11 @@ export default function ElVar({ matchesData }){
     return(
         <>
             <Head>
-            <meta charset="UTF-8" />
+            <meta charSet="UTF-8" />
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width,initial-scale=1" />
             <title>ELVAR</title>
-            <meta charset="UTF-8" />
+            <meta charSet="UTF-8" />
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width,initial-scale=1" />
             <meta name="theme-color" content="#000" />

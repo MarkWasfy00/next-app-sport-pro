@@ -1,16 +1,16 @@
 import React from 'react'
-
+import Link from 'next/link'
 function Header() {
   return (
     <header>
       <nav className='navbar container'>
-        <div className='logo small-regular'></div>
+        <Link passHref href='/'><div className='logo small-regular'></div></Link>
         <ul className='lists'>
             <li>
-                <a href='#' className='xsmall-regular'>الرئيسية</a>
+                <Link href='/'><a className='xsmall-regular'>الرئيسية</a></Link>
             </li>
             <li>
-                <a href='#' className='xsmall-regular disabled'>الاخبار</a>
+                <Link href='/news'><a  className='xsmall-regular disabled'>الاخبار</a></Link>
             </li>
         </ul>
       </nav>

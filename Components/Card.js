@@ -2,11 +2,11 @@ import React from 'react'
 import { addHours, intervalToDuration , isValid , isFuture, isPast ,isAfter} from 'date-fns';
 import axios from 'axios';
 import Image from 'next/image';
-
+import Link from 'next/link';
 
 
 function Card(props) {
-    let teamA,teamAPhoto,teamB,teamBPhoto,time,scoreA,scoreB,voice,tv,cup,refer
+    let teamA,teamAPhoto,teamB,teamBPhoto,time,scoreA,scoreB,voice,tv,cup,refer,startTime,endTime
     teamA = props.data.querySelector('.alba_sports_events_link .event_inner .team-first .team .alba_sports_events-team_title').innerHTML;
     teamAPhoto = props.data.querySelector('.alba_sports_events_link .event_inner .team-first .team .alba-team_logo img').getAttribute("data-lazy-src");
     teamB = props.data.querySelector('.alba_sports_events_link .event_inner .team-second .team .alba_sports_events-team_title').innerHTML;
@@ -18,7 +18,8 @@ function Card(props) {
     tv = props.data.querySelector('.alba_sports_events_link .chanels-fix .events-info .tv').childNodes[1].data;
     cup = props.data.querySelector('.alba_sports_events_link .chanels-fix .events-info .cup').childNodes[1].data;
     refer =  props.data.querySelector('.alba_sports_events_link').getAttribute('href');
-
+    startTime = props.data.querySelector('.alba_sports_events_link .event_inner .event_title_wrapper .matchResult .match-data .Matchestatus .status .stay').getAttribute('data-start');
+    endTime =  props.data.querySelector('.alba_sports_events_link .event_inner .event_title_wrapper .matchResult .match-data .Matchestatus .status .stay').getAttribute('data-gameends');
     
     function reducer(state,action) {
         switch (action.type) {
@@ -26,8 +27,8 @@ function Card(props) {
                 return {...state,realTime:action.payload}
             case 'showScore':
                 return {...state,showScore:action.payload}
-            case 'liveLink':
-                return {...state,liveLink:action.payload}
+            case 'liveOrSoon':
+                return {...state,liveOrSoon:action.payload}
             default:
                 return {...state}
         }
@@ -36,7 +37,6 @@ function Card(props) {
     const [matchesData , dispatch] = React.useReducer(reducer,{
         realTime: '',
         showScore: false,
-        liveLink:'',
     });
     
 
@@ -53,7 +53,7 @@ function Card(props) {
             }
         })
         // $(props.data).find('.alba_sports_events_link .event_inner .event_title_wrapper .matchResult .match-data .Matchestatus .status .stay').attr('data-gameends')
-        let matchHrs = addHours(new Date(`${props.data.querySelector('.alba_sports_events_link .event_inner .event_title_wrapper .matchResult .match-data .Matchestatus .status .stay').getAttribute('data-start')}`),2);
+        let matchHrs = addHours(new Date(startTime),2);
         if(isValid(matchHrs)){
             if(isFuture(matchHrs)){
                 setInterval(() => {
@@ -78,8 +78,7 @@ function Card(props) {
                     // 
                     
                 },1000);
-                
-            } else if (isFuture(addHours(new Date(`${props.data.querySelector('.alba_sports_events_link .event_inner .event_title_wrapper .matchResult .match-data .Matchestatus .status .stay').getAttribute('data-gameends')}`),2))) {
+            } else if (isFuture(addHours(new Date(endTime),2))) {
                 dispatch({type:'realTime',payload:'مباشـر'});
                 dispatch({type:'showScore',payload:true});
     
@@ -95,21 +94,21 @@ function Card(props) {
     },[])
 
     
-    function matchLive(){
-        let newWin = open('url','windowName','height=500,width=800');
-        newWin.document.write(`
-        <!DOCTYPE html>
-        <html lang="en" style="margin: 0; padding: 0; background-color: #282829; overflow:hidden;">
-        <head>
-            <title>ELVAR BEIN SPORTS</title>
-        </head>
-        <body >
-            <iframe src="" scrolling="no" allow="autoplay" allowfullscreen=true; frameborder="0" style=" display:block; width:100vw; height:100vh; border:none; margin:0; padding:0;"></iframe>
-        </body>
-        </html>
-        `)
-        newWin.document.querySelector('iframe').setAttribute('src',`${matchesData.liveLink}`)
-    }
+    // function matchLive(){
+    //     let newWin = open('url','windowName','height=500,width=800');
+    //     newWin.document.write(`
+    //     <!DOCTYPE html>
+    //     <html lang="en" style="margin: 0; padding: 0; background-color: #282829; overflow:hidden;">
+    //     <head>
+    //         <title>ELVAR BEIN SPORTS</title>
+    //     </head>
+    //     <body >
+    //         <iframe src="" scrolling="no" allow="autoplay" allowfullscreen=true; frameborder="0" style=" display:block; width:100vw; height:100vh; border:none; margin:0; padding:0;"></iframe>
+    //     </body>
+    //     </html>
+    //     `)
+    //     newWin.document.querySelector('iframe').setAttribute('src',`${matchesData.liveLink}`)
+    // }
 
   return (
     <div className='card animate__animated animate__flipInX'>
@@ -147,7 +146,8 @@ function Card(props) {
                 <div className='voice'>{voice}</div>
             </div>
         </div>
-        {matchesData.liveLink && <button onClick={matchLive} className='bein testing'>مشاهدة الان</button>}
+        {/* {matchesData.liveLink && <button onClick={matchLive} className='bein testing'>مشاهدة الان</button>} */}
+        {matchesData.realTime === 'مباشـر'  ? <Link href={{pathname:`/beinsport/${tv}`,query:{tvs:refer}}} passHref><button className='bein testing'>مشاهدة الان</button></Link>: ' ' }
     </div>
   )
 }
