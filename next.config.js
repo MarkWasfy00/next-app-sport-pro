@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   images: {
-    domains: ['goalarab.com']
+    domains: ['goalarab.com','media.gemini.media']
   },
   i18n: {
     locales: ["en"],

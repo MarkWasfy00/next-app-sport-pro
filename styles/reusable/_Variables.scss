@@ -1,6 +1,14 @@
 // COLORS 
+:root{
+    --background: #1d1d1d;
+    --color:whitesmoke;
+    --card: #343434;
+    --header: #282829
+}
 
-$bg: #1d1d1d;
-$color: whitesmoke;
-$card: #343434;
-$header: #282829;
+
+
+$bg: var(--background);
+$color: var(--color);
+$card: var(--card);
+$header: var(--header);

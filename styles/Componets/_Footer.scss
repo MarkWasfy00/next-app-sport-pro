@@ -1,5 +1,6 @@
 @use '../reusable/AllReusable' as *;
 @use '../Mixins/AllMixins' as *;
+@use '../reusable/Variables' as *;
 
 
 footer{
@@ -11,6 +12,6 @@ footer{
     text-align: center;
     padding: 1rem;
     a{
-        color: white;
+        color: $color;
     }
 }

@@ -6,6 +6,7 @@
     @include flex(false,center,space-between);
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
+    border: .2px solid #282829;
     .logo{
         @include flex(false);
         gap: 1rem;
@@ -38,5 +39,22 @@
                 color: $color;
             }
         }
+    }
+
+    .theme{
+        i{
+            position: relative;
+            font-size: 2rem;
+            color: $color;
+            input{
+                position: absolute;
+                appearance: none;
+                inset: 0 0 0 0;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        
     }
 }

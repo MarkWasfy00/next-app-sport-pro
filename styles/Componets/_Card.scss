@@ -9,6 +9,7 @@
     border-radius: 1rem;
     min-height: 10rem;
     padding: 1rem;
+    color: $color;
     .match-events{
         @include flex(false,center,space-between);
         .teams{

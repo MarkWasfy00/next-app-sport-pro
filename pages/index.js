@@ -12,18 +12,21 @@ function reducer(state,action) {
     switch (action.type) {
         case 'yestrday':
             return {
+                ...state,
                 today:false,
                 yestrday:true,
                 tommorw:false,
             }
         case 'today':
             return {
+                ...state,
                 today:true,
                 yestrday:false,
                 tommorw:false,
             }
         case 'tommorw':
             return {
+                ...state,
                 today:false,
                 yestrday:false,
                 tommorw:true,
@@ -33,18 +36,14 @@ function reducer(state,action) {
     }
 }
 
-let btns = {
-    yestrday:false,
-    today:true,
-    tommorw:false,
-}
-
-
 export default function ElVar({ matchesData }){
-    
-    const [dayBtn , dispatch] = React.useReducer(reducer,btns)
+    const [dayBtn , dispatch] = React.useReducer(reducer,{
+        yestrday:false,
+        today:true,
+        tommorw:false,
+    })
     const [myDays , setMyDays] = React.useState([])
-
+    
 
     React.useEffect(() => {
         let htmlDummy = document.createElement("html");
@@ -91,7 +90,7 @@ export default function ElVar({ matchesData }){
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossOrigin="anonymous" referrerpolicy="no-referrer"/>
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2196629982967702" crossOrigin="anonymous"></script>
             </Head>
-            <Header/>
+            <Header />
             <main>
                 <Date indicator={dayBtn} modify={dispatch} />
                     <BtnContext.Provider value={{ btn:dayBtn , data:matchesData}}>

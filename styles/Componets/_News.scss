@@ -1,0 +1,24 @@
+@use '../reusable/Variables' as * ;
+
+.news-holder{
+    background-color: $card;
+    margin-top: 5rem;
+}
+
+
+.news{
+    display: flex;
+    flex-wrap: wrap;
+
+    .new{
+        flex-grow: 1;
+        text-align: right;
+        min-width: 20rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        
+    }
+    
+}
