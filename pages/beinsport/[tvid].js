@@ -24,8 +24,8 @@ function DynamicBeinSport({ data }) {
     htmlDummy.innerHTML = data;
     let content = htmlDummy.getElementsByTagName('body')[0].querySelector('.post-content iframe');
     if(content){
-      let beinChannel = content.getAttribute('src')[content.getAttribute('src').length - 2]
-      dispatch({type:'liveLink',payload:`https://canal.goalarab.com/tv/tv/bein${beinChannel}/`})
+      let beinChannel = content.getAttribute('src')
+      dispatch({type:'liveLink',payload:`${beinChannel}`})
     }
   },[])
 
@@ -33,8 +33,7 @@ function DynamicBeinSport({ data }) {
     <>
       <Header/>
       <main className='container'>
-      <iframe src={matchesData.liveLink} scrolling="no" allow="autoplay" allowFullScreen={true} frameBorder="0" width={'100%'} height={'600'} ></iframe>
-      
+      <iframe src={matchesData.liveLink} scrolling="no" allow="autoplay" allowFullScreen={true} frameBorder="0" width={'100%'} height={'500'} ></iframe>
       </main>
       <Footer/>
     </>
