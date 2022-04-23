@@ -56,6 +56,9 @@ function Header() {
             <li>
                 <Link href='/news'><a  className='xsmall-regular'>الاخبار</a></Link>
             </li>
+            <li>
+                <Link href='/news'><a  className='xsmall-regular disabled'>الدوريات</a></Link>
+            </li>
         </ul>
         <div className='theme'>
           <i className={`fas${theme === 'dark' ? ' fa-sun':' fa-moon'}`}>

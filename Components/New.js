@@ -7,12 +7,16 @@ function New(props) {
   newsDate = props.data.querySelector('a .time span').innerHTML;
   newsTime  = props.data.querySelectorAll('a .time span')[1].innerHTML;
   newsImage = props.data.querySelector('a .imageCntnr img').getAttribute('data-src');
-  console.log(newsTitle,newsDate,newsTime,newsImage)
   return (
     <div className="new xsmall-regular">
-      <Image priority src={newsImage} alt={newsTitle} width={320} height={300} />
+      <div className='image-wrapper'>
+        <Image priority src={newsImage} alt={newsTitle} width={320} height={300} quality={50} />
+      </div>
       <div>{newsTitle}</div>
-      <p>{newsDate}</p>
+      <div className='realease-time testing'>
+        <span>{newsTime}</span>
+        <p>{newsDate}</p>
+      </div>
     </div>
   );
 }

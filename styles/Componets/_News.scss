@@ -1,4 +1,7 @@
 @use '../reusable/Variables' as * ;
+@use '../Mixins/AllMixins' as *;
+
+
 
 .news-holder{
     background-color: $card;
@@ -11,13 +14,27 @@
     flex-wrap: wrap;
 
     .new{
-        flex-grow: 1;
-        text-align: right;
-        min-width: 20rem;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
+        @include flex(column);
         gap: 1rem;
+        flex-grow: 1;
+        padding: 2rem;
+        text-align: center;
+
+        .image-wrapper{
+            margin: 0 auto;
+            img{
+                width: 50rem !important;
+                height: 25rem !important;
+                object-fit: cover;
+                min-width: 20rem;
+                flex-grow: 1;
+            }
+        }
+
+        .realease-time{
+            @include flex(false,false,center);
+            gap: 1rem;
+        }
         
     }
     
