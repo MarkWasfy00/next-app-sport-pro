@@ -31,11 +31,9 @@ function DynamicBeinSport({ data }) {
 
   return (
     <>
-      <Header/>
       <main className='container'>
       <iframe src={matchesData.liveLink} scrolling="no" allow="autoplay" allowFullScreen={true} frameBorder="0" width={'100%'} height={'500'} ></iframe>
       </main>
-      <Footer/>
     </>
   )
 }
