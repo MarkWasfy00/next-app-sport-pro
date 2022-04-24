@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+
+
 const nextConfig = {
   reactStrictMode: false,
   images: {
@@ -8,6 +11,7 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  
 }
 
 module.exports = nextConfig
