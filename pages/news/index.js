@@ -1,7 +1,4 @@
 import React from 'react';
-import  Header from '../../Components/Header';
-import Footer from  '../../Components/Footer';
-import Head from 'next/head';
 import axios from 'axios';
 import New from '../../Components/New';
 

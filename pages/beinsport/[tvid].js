@@ -1,8 +1,7 @@
 import { useEffect,useReducer } from "react";
 import axios from "axios";
-import Header from '../../Components/Header';
-import Footer from '../../Components/Footer';
-import Head from "next/head";
+
+
 
 function reducer(state,action) {
   switch (action.type){

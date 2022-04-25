@@ -8,19 +8,19 @@ function Leauge(props) {
     
     let matches = []
     let indicator = React.useContext(BtnContext)
+    const infos = props.data;
 
-
-    if(props.data.querySelector('.albaflex').children.length > 1){
-        props.data.querySelector('.albaflex').childNodes.forEach((item,index) => {
-            matches.push(<Card key={index}  data={item} />)
-        })
+    if(Object.keys(props.data).length > 0){
+        for(let card in infos){
+            matches.push(<Card key={infos[card].id}  matchInfo={infos[card]} />)
+        }
     } else{
         matches.push(<NoMatch />)
     }
 
   return (
     <div className={`leauge-display container${indicator.btn[props.id] ? '' : ' disactive'}`}>
-        {matches}
+        {matches} 
     </div>
   )
 }
