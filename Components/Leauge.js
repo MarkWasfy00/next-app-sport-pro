@@ -10,7 +10,9 @@ function Leauge(props) {
     let indicator = React.useContext(BtnContext)
     const infos = props.data;
 
-    if(Object.keys(props.data).length > 0){
+    
+
+    if(Object.keys(props.data).length > 1){
         for(let card in infos){
             matches.push(<Card key={infos[card].id}  matchInfo={infos[card]} />)
         }
