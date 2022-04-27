@@ -10,6 +10,18 @@ import NextNProgress from 'nextjs-progressbar';
 function MyApp({ Component, pageProps }) {
   return(
     <>
+      <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`} />
+
+      <Script id='google-analytics' strategy="lazyOnload">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+              });
+          `}
+      </Script>
       <Head>
             <meta charSet="UTF-8" />
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -28,7 +40,6 @@ function MyApp({ Component, pageProps }) {
             <meta name="description" id="metaDesc" content="اخبار الكورة والرياضة المصرية والعالمية ومواعيد المباريات علي الفار"/>
             <link rel="canonical" href="https://el-var.live" />
       </Head>
-      <Script src="https://www.google-analytics.com/analytics.js" />
       <NextNProgress 
         color='#fff'
         height={2}
