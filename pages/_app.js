@@ -4,6 +4,7 @@ import Footer from '../Components/Footer';
 import Head from 'next/head';
 import '../styles/main.scss';
 import Script from 'next/script';
+import NextNProgress from 'nextjs-progressbar';
 
 
 function MyApp({ Component, pageProps }) {
@@ -28,6 +29,10 @@ function MyApp({ Component, pageProps }) {
             <link rel="canonical" href="https://el-var.live" />
       </Head>
       <Script src="https://www.google-analytics.com/analytics.js" />
+      <NextNProgress 
+        color='#fff'
+        height={2}
+      />
       <Header />
       <Component {...pageProps} />
       <Footer />

@@ -41,10 +41,7 @@ function Header() {
     })
   }
 
-  function getUserTheme(){
-    window.localStorage.theme ? window.localStorage.theme: null
-  }
-
+  
   return (
     <header>
       <nav className='navbar container'>

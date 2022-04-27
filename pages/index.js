@@ -34,7 +34,10 @@ function reducer(state,action) {
     }
 }
 
-export default function ElVar({yesterday,today,tommorw  }){
+
+
+
+export default function ElVar({ yesterday,today,tommorw }){
     const [dayBtn , dispatch] = React.useReducer(reducer,{
         yestrday:false,
         today:true,

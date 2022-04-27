@@ -1,6 +1,5 @@
 import React from 'react'
 import { addHours, intervalToDuration , isValid , isFuture, isPast ,isAfter} from 'date-fns';
-import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -35,24 +34,23 @@ function Card({matchInfo}) {
         let matchHrs = addHours(new Date(matchInfo.startTime),2);
         if(isValid(matchHrs)){
             if(isFuture(matchHrs)){
-                setInterval(() => {
+                let timer = setInterval(() => {
                     let duration = intervalToDuration({
                         start: new Date(),
                         end: matchHrs
                     });
-                    
                     // days to hrs
                     if(duration.days >= 1){
                         let final = duration.days * 24
                         dispatch({type:'realTime', payload:`${duration.hours + final}:${duration.minutes}:${duration.seconds}`})
-                        // return () => clearInterval(counter)
+                        // return () => clearInterval(timer)
 
                     } else if(duration.days === 0 && duration.hours === 0 && duration.minutes < 30){
                         dispatch({type:'realTime',payload:'بعد قليل'});
-                        // return () => clearInterval(counter)
+                        // return () => clearInterval(timer)
                     } else {
                         dispatch({type:'realTime', payload:`${duration.hours}:${duration.minutes}:${duration.seconds}`})
-                        // return () => clearInterval(counter)
+                        // return () => clearInterval(timer)
                     }
                     // 
                     
@@ -70,9 +68,8 @@ function Card({matchInfo}) {
             dispatch({type:'showScore',payload:true});
         }
         
+        
     },[matchInfo.endTime, matchInfo.refer, matchInfo.startTime])
-
-    
 
 
   return (
