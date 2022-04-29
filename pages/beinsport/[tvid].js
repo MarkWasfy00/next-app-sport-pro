@@ -1,37 +1,19 @@
 import { useEffect,useReducer } from "react";
 import axios from "axios";
+import * as cheerio from 'cheerio';
+import Head from "next/head";
 
 
-
-function reducer(state,action) {
-  switch (action.type){
-      case 'liveLink':
-          return {...state,liveLink:action.payload}
-      default:
-          return {...state}
-  }
-}
-
-
-function DynamicBeinSport({ data }) {
-
-  const [matchesData , dispatch] = useReducer(reducer,{liveLink:'https://canal.goalarab.com/tv/tv/bein1/'});
-
-
-  useEffect(() => {
-    let htmlDummy = document.createElement("html");
-    htmlDummy.innerHTML = data;
-    let content = htmlDummy.getElementsByTagName('body')[0].querySelector('.post-content iframe');
-    if(content){
-      let beinChannel = content.getAttribute('src')
-      dispatch({type:'liveLink',payload:`${beinChannel}`})
-    }
-  },[])
-
+function DynamicBeinSport({ link , teamA , teamB }) {
+  
   return (
     <>
+      <Head>
+        <title>{`مشاهدة مباراة ${teamA} و ${teamB}`}</title>
+        <meta property="og:title" content={`مشاهدة مباراة ${teamA} و ${teamB}`} />
+      </Head>
       <main className='container'>
-      <iframe src={matchesData.liveLink} scrolling="no" allow="autoplay" allowFullScreen={true} frameBorder="0" width={'100%'} height={'500'} ></iframe>
+        <iframe src={link} scrolling="no" allow="autoplay" allowFullScreen={true} frameBorder="0" width={'100%'} height={'500'} ></iframe>
       </main>
     </>
   )
@@ -48,10 +30,15 @@ export async function getServerSideProps(context){
     return { notFound: true }
   }
   const data = await axios.get(`${tv}`);
+  const html = await data.data
+  const $ = cheerio.load(html)
+  let beinLink = $('.post-content iframe').attr('src')
 
   return{
     props:{
-      data:data.data,
+      link:`${beinLink}`,
+      teamA: `${query.teama}`,
+      teamB: `${query.teamb}`
     }
   }
 }

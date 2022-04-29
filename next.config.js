@@ -8,8 +8,8 @@ const nextConfig = {
     domains: ['goalarab.com','media.gemini.media']
   },
   i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
+    locales: ["ar-EG"],
+    defaultLocale: "ar-EG",
   },
 }
 

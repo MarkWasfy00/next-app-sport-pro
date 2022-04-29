@@ -45,17 +45,15 @@ export default function ElVar({ yesterday,today,tommorw }){
     })
     
     return(
-        <>
-            <main>
-                <Date indicator={dayBtn} modify={dispatch} />
-                    <BtnContext.Provider value={{ btn:dayBtn}}>
-                        <Leauge key={'yesterday'} id={'yestrday'} data={JSON.parse(yesterday)} />
-                        <Leauge key={'today'} id={'today'} data={JSON.parse(today)} />
-                        <Leauge key={'tommorw'} id={'tommorw'} data={JSON.parse(tommorw)} />
-                    </BtnContext.Provider>
-            </main>
-        </>
-    ) 
+        <main>
+            <Date indicator={dayBtn} modify={dispatch} />
+                <BtnContext.Provider value={{ btn:dayBtn}}>
+                    <Leauge key={'yesterday'} id={'yestrday'} data={JSON.parse(yesterday)} />
+                    <Leauge key={'today'} id={'today'} data={JSON.parse(today)} />
+                    <Leauge key={'tommorw'} id={'tommorw'} data={JSON.parse(tommorw)} />
+                </BtnContext.Provider>
+        </main>
+    )
 }
 
 export async function getServerSideProps(){

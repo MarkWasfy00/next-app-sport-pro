@@ -22,9 +22,9 @@ function MyApp({ Component, pageProps }) {
             <meta name="googlebot" content="index,follow" />
             <meta property="og:type" content="website" />
             <meta property="og:locale" content="ar_AR" />
-            <meta property="og:site_name" content="el-var" />
+            <meta property="og:title" content="ELVAR" />
+            <meta property="og:description" content="اخبار الكورة والرياضة المصرية والعالمية ومواعيد المباريات علي الفار" />
             <meta name="keywords" id="metaKeyword" content="" />
-            <meta name="description" id="metaDesc" content="اخبار الكورة والرياضة المصرية والعالمية ومواعيد المباريات علي الفار"/>
             <link rel="canonical" href="https://el-var.live" />
       </Head>
       <NextNProgress 

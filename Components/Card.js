@@ -108,7 +108,7 @@ function Card({matchInfo}) {
                 <div className='voice'>{matchInfo.voice}</div>
             </div>
         </div>
-        {matchesData.realTime === 'مباشـر'  ? <Link href={{pathname:`/beinsport/${matchInfo.tv}`,query:{tvs:matchInfo.refer}}} passHref><button className='bein testing'>مشاهدة الان</button></Link>: ' ' }
+        { matchesData.realTime === 'مباشـر' ? <Link href={{pathname:`/beinsport/${matchInfo.tv}`,query:{tvs:matchInfo.refer,teama:matchInfo.teamA,teamb:matchInfo.teamB}}} passHref><button className='bein testing'>مشاهدة الان</button></Link>: ' ' }
     </div>
   )
 }
