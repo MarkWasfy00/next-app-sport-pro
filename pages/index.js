@@ -71,7 +71,7 @@ export async function getServerSideProps(){
          
         for(let match of dayData){
             finalList[`${counter}`] = {}
-            finalList[`${counter}`].id = `${counter}-id`
+            finalList[`${counter}`].id = $(match).find('.alba_sports_events_link .event_inner .event_title_wrapper .matchResult .match-data .Matchestatus .status .stay').attr('id')
             finalList[`${counter}`].teamA = $(match).find('.alba_sports_events_link .event_inner .team-first .team .alba_sports_events-team_title').html();
             finalList[`${counter}`].teamAPhoto = $(match).find('.alba_sports_events_link .event_inner .team-first .team .alba-team_logo img').attr('data-lazy-src');
             finalList[`${counter}`].teamB = $(match).find('.alba_sports_events_link .event_inner .team-second .team .alba_sports_events-team_title').html();

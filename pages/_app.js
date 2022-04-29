@@ -3,25 +3,12 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import Head from 'next/head';
 import '../styles/main.scss';
-import Script from 'next/script';
 import NextNProgress from 'nextjs-progressbar';
 
 
 function MyApp({ Component, pageProps }) {
   return(
     <>
-      <Script strategy="lazyOnload" src={`https://www.googletagmanager.com/gtag/js?id=G-F50FH9094V`} />
-
-      <Script id='google-analytics' strategy="lazyOnload">
-          {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-F50FH9094V', {
-              page_path: window.location.pathname,
-              });
-          `}
-      </Script>
       <Head>
             <meta charSet="UTF-8" />
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
